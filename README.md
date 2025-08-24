@@ -34,26 +34,39 @@ ETL_project/
 
 │── README.md       	    (User Manaual)
 
+
+
 🛠️ Requirements
 
 1. Clone the repository
-git clone https://github.com/your-username/ETL_project.git
-cd ETL_project
+
+   git clone https://github.com/your-username/ETL_project.git
+
+   cd ETL_project
 
 2. Create a virtual environment (recommended)
-python -m venv venv
-source venv/bin/activate   # for macOS/Linux
-venv\Scripts\activate      # for Windows
+
+   python -m venv venv
+
+   source venv/bin/activate   # for macOS/Linux
+
+   venv\Scripts\activate      # for Windows
 
 3.  Install dependencies
-pip install -r requirements.txt
+  
+    pip install -r requirements.txt
+
 
 ▶️ Running the ETL Pipeline
+
 1.	Run Extract:
+   
 python extract/execute.py
 
 2.	Run Transform:
+   
 python transform/execute.py
 
 3.	Run Load:
+   
 python load/execute.py
