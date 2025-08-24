@@ -3,10 +3,15 @@
 This project is an ETL (Extract, Transform, Load) pipeline built with PySpark, PostgreSQL, and Apache Superset to analyze COVID-19 data (2020–2025). It extracts raw data from CSV, transforms it into a clean structured format, and loads it into PostgreSQL for visualization in Superset.
 
 🚀 Features
+
 	•	Extracts COVID-19 dataset from local files.
+ 
 	•	Cleans, casts datatypes, and aggregates data with PySpark.
+ 
 	•	Loads processed data into PostgreSQL.
+
 	•	Visualizes data using Apache Superset with charts & dashboards.
+ 
 	•	Logging enabled for Extract, Transform, Load phases.
 
 📂 Project Structure
