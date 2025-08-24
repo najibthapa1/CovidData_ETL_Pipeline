@@ -1,77 +1,68 @@
-# COVID-19 ETL Pipeline
+# 📘 User Manual for COVID-19 ETL Pipeline Project  
 
+## 1. Introduction  
 This project is an ETL (Extract, Transform, Load) pipeline built with PySpark, PostgreSQL, and Apache Superset to analyze COVID-19 data (2020–2025). It extracts raw data from CSV, transforms it into a clean structured format, and loads it into PostgreSQL for visualization in Superset.
 
-🚀 Features
 
-	•	Extracts COVID-19 dataset from local files.
- 
-	•	Cleans, casts datatypes, and aggregates data with PySpark.
- 
-	•	Loads processed data into PostgreSQL.
+- **Extract**: Reads COVID-19 dataset.  
+- **Transform**: Cleans, filters, and organizes the data (cases, deaths, population).  
+- **Load**: Stores the processed data into a **PostgreSQL database** for analysis & dashboards in **Apache Superset**.  
 
-	•	Visualizes data using Apache Superset with charts & dashboards.
- 
-	•	Logging enabled for Extract, Transform, Load phases.
+---
 
-📂 Project Structure
-ETL_project/
+## 2. Prerequisites  
 
-│── extract/       (Extract raw dataset)
+### ✅ Install These Softwares  
+- [Python 3.8+](https://www.python.org/downloads/)  
+- [Git](https://git-scm.com/downloads)  
+- [PostgreSQL](https://www.postgresql.org/download/) (default port `5432`)  
+- [pgAdmin](https://www.pgadmin.org/download/)
 
-   └── execute.py
+---
 
-│── transform/         (Clean and transform data)
+## 3. Download the Project  
 
-   └── execute.py
+```bash
+git clone https://github.com/najibthapa1/CovidData_ETL_Pipeline.git
+cd Covid_ETL_Pipeline
+```
 
-│── load/             	  (Load transformed data into PostgreSQL)
+---
 
-   └── execute.py
+## 4. Create a virtual environment (recommended)
 
-│── utility/          	  (Utility functions (logging, configs))
+```bash
+python -m venv venv
+source venv/bin/activate   # for macOS/Linux
+venv\Scripts\activate      # for Windows
+```
 
-   └── utility.py
+---
 
-│── .gitignore       	   (Ignore logs, JSON configs, cache)
+## 5. Install required Libraries
 
-│── requirements.txt   	 (Python dependencies)
+```bash
+pip install -r requirements.txt
+```
 
-│── README.md       	    (User Manaual)
+---
 
+## 6. Run the ETL Pipeline
 
+### Step 1: Extract
 
-🛠️ Requirements
+```bash
+python extract/extract.py
+```
 
-1. Clone the repository
+### Step 2: Transform
 
-   git clone https://github.com/your-username/ETL_project.git
+```bash
+python transform/transform.py
+```
 
-   cd ETL_project
+### Step 3: Load
 
-2. Create a virtual environment (recommended)
-
-   python -m venv venv
-
-   source venv/bin/activate   # for macOS/Linux
-
-   venv\Scripts\activate      # for Windows
-
-3.  Install dependencies
-  
-    pip install -r requirements.txt
-
-
-▶️ Running the ETL Pipeline
-
-1.	Run Extract:
-   
-python extract/execute.py
-
-2.	Run Transform:
-   
-python transform/execute.py
-
-3.	Run Load:
-   
-python load/execute.py
+```bash
+python load/load.py
+```
