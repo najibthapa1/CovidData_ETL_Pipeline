@@ -11,21 +11,28 @@ This project is an ETL (Extract, Transform, Load) pipeline built with PySpark, P
 
 📂 Project Structure
 ETL_project/
-│── extract/            # Extract raw dataset
-│   └── execute.py
-│
-│── transform/          # Clean and transform data
-│   └── execute.py
-│
-│── load/               # Load transformed data into PostgreSQL
-│   └── execute.py
-│
-│── utility/            # Utility functions (logging, configs)
-│   └── utility.py
-│
-│── .gitignore          # Ignore logs, JSON configs, cache
-│── requirements.txt    # Python dependencies
-│── README.md           # Documentation
+
+│── extract/       (Extract raw dataset)
+
+   └── execute.py
+
+│── transform/         (Clean and transform data)
+
+   └── execute.py
+
+│── load/             	  (Load transformed data into PostgreSQL)
+
+   └── execute.py
+
+│── utility/          	  (Utility functions (logging, configs))
+
+   └── utility.py
+
+│── .gitignore       	   (Ignore logs, JSON configs, cache)
+
+│── requirements.txt   	 (Python dependencies)
+
+│── README.md       	    (User Manaual)
 
 🛠️ Requirements
 
