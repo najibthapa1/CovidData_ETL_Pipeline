@@ -1,4 +1,2 @@
 pyspark
 psycopg2-binary
-apache_superset
-Pillow
