@@ -13,7 +13,7 @@ This project is an ETL (Extract, Transform, Load) pipeline built with PySpark, P
 ## 2. Prerequisites  
 
 ### ✅ Install These Softwares  
-- [Python 3.8+](https://www.python.org/downloads/)  
+- [Python](https://www.python.org/downloads/)  
 - [Git](https://git-scm.com/downloads)  
 - [PostgreSQL](https://www.postgresql.org/download/) (default port `5432`)  
 - [pgAdmin](https://www.pgadmin.org/download/)
@@ -74,17 +74,17 @@ exit
 sudo nano /etc/postgresql/16/main/pg_hba.conf
 ```
 
-scroll down and change 'peer' keyword to 'md5' in the connection part
+Scroll down and change the 'peer' keyword to 'md5' in the connection part
 
-restart the postgresql service 
+Restart the PostgreSQL service 
 
 ### Setting up pgAdmin
 
 - Open pgAdmin
-- Go to Servers Right Click -> Register -> Service
+- Go to Servers, Right Click -> Register -> Service
 - Fill out the fields:
-  - hostname :   localhost
-  - post : 5432
+  - hostname:   localhost
+  - port: 5432
   - username: postgres
   - password: postgres
     
@@ -110,7 +110,71 @@ python transform/transform.py /(extracted files full path)  /(full path to the d
 python load/load.py /(transformed files full path) db_username db_password
 ```
 
+After loading success, the data can be viewed from the pgAdmin -> localhost -> Tables
+
 ---
 
-## 8. Visualize with Superset
+## 8. Visualize with Superset (Optional)
 
+### Create a new directory superset and cd into it
+
+```bash
+
+mkdir superset && cd superset
+```
+
+### Create a new virtual environment and install apache superset
+
+```bash
+python3.11 -m venv venv
+source venv/bin/activate
+pip install apache_superset
+```
+
+### Add parameters required by Apache Superset
+
+```bash
+nano ~/.bashrc or nano ~/.zshrc
+```
+
+Add the following parameters:
+
+export SUPERSET_SECRET_KEY=YOUR-SECRET-KEY
+
+export FLASK_APP=superset
+
+Save it & 
+```bash
+source ~/.bashrc or source ~/.zshrc
+```
+
+### Installing required libraries
+```bash
+pip install Pillow
+pip install marshmallow==3.26.1
+pip install psycopg2-binary
+```
+
+### Initializng database and admin user
+
+```bash
+superset db upgrade
+superset fab create-admin
+superset init
+```
+
+### Running the superset server in development mode in port 8088
+
+```bash
+superset run -p 8088 --wuth-threads-reload --debugger
+```
+
+- Go to webbrowser and type localhost:8088.
+- Enter the username and password set earlier
+- Connect our local postgre server to superset
+- Click the + icon > Data > Connect database
+- Select postgres, enter your credentials and press connect
+- Create a dataset out of daily_country (database - PostgreSQL, Schema - public, Table - daily_country)
+- Create charts and dashboard to save the created charts.
+
+---
